@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NEXUS // TECH ARENA</title>
+
+    <meta name="description"
+          content="NEXUS Tech Arena — Interactive Technical Quiz">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- =====================================================
+     CUSTOM CURSOR
+===================================================== -->
+
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
+
+<div class="background-grid"></div>
+<div class="noise"></div>
+
+<div class="bg-glow glow-one"></div>
+<div class="bg-glow glow-two"></div>
+<div class="bg-glow glow-three"></div>
+
+<div id="particles"></div>
+
+<!-- =====================================================
+     BOOT SCREEN
+===================================================== -->
+
+<section class="boot-screen" id="bootScreen">
+
+    <div class="boot-container">
+
+        <div class="boot-logo">
+            <span>&lt;/&gt;</span>
+        </div>
+
+        <div class="boot-title">
+            NEXUS
+        </div>
+
+        <div class="boot-subtitle">
+            TECH ARENA // OS v2.0
+        </div>
+
+        <div class="boot-terminal">
+
+            <p>
+                <span>></span>
+                INITIALIZING CORE
+                <b>OK</b>
+            </p>
+
+            <p>
+                <span>></span>
+                LOADING QUESTION DATABASE
+                <b>OK</b>
+            </p>
+
+            <p>
+                <span>></span>
+                CALIBRATING ARENA
+                <b>OK</b>
+            </p>
+
+            <p>
+                <span>></span>
+                ESTABLISHING NEURAL LINK
+                <b>OK</b>
+            </p>
+
+            <p>
+                <span>></span>
+                SYSTEM STATUS
+                <b>ONLINE</b>
+            </p>
+
+        </div>
+
+        <div class="boot-progress">
+            <div id="bootProgress"></div>
+        </div>
+
+        <div class="boot-access">
+            ACCESS GRANTED
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="topbar">
+
+    <div class="brand">
+
+        <div class="brand-icon">
+            <span>&lt;/&gt;</span>
+        </div>
+
+        <div>
+
+            <h1>NEXUS</h1>
+
+            <p>
+                TECH ARENA
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="header-controls">
+
+        <button
+            class="control-btn"
+            id="soundBtn"
+            title="Sound">
+
+            🔊
+
+        </button>
+
+        <button
+            class="control-btn"
+            id="fullscreenBtn"
+            title="Fullscreen">
+
+            ⛶
+
+        </button>
+
+        <div class="header-status">
+
+            <span class="status-dot"></span>
+
+            SYSTEM ONLINE
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main>
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+    <div class="hero-tag">
+
+        <span></span>
+
+        KNOWLEDGE PROTOCOL // 02
+
+    </div>
+
+
+    <h2>
+
+        THINK
+        <span>//</span>
+        CODE
+        <span>//</span>
+        CONQUER
+
+    </h2>
+
+
+    <p class="hero-description">
+
+        Enter the technical arena.
+        Test your programming knowledge.
+        Build your combo. Survive the system.
+
+    </p>
+
+
+    <div class="hero-line"></div>
+
+
+    <div class="stats">
+
+        <div class="stat">
+
+            <strong>50</strong>
+
+            <span>
+                QUESTIONS
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <strong>3</strong>
+
+            <span>
+                LIVES
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <strong>3</strong>
+
+            <span>
+                POWER UPS
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <strong>∞</strong>
+
+            <span>
+                CHALLENGE
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     DIFFICULTY SCREEN
+===================================================== -->
+
+<section
+    class="start-screen"
+    id="startScreen">
+
+    <div class="start-card">
+
+        <div class="card-corner top-left"></div>
+        <div class="card-corner top-right"></div>
+        <div class="card-corner bottom-left"></div>
+        <div class="card-corner bottom-right"></div>
+
+
+        <div class="start-icon">
+            ⚡
+        </div>
+
+
+        <p class="system-label">
+            SELECT YOUR PROTOCOL
+        </p>
+
+
+        <h3>
+            CHOOSE
+            <span>DIFFICULTY</span>
+        </h3>
+
+
+        <p>
+            Your selected difficulty determines
+            the time available for each question.
+        </p>
+
+
+        <div class="difficulty-grid">
+
+            <button
+                class="difficulty easy"
+                data-difficulty="easy">
+
+                <strong>EASY</strong>
+
+                <span>
+                    15 SEC
+                </span>
+
+                <small>
+                    FOUNDATION
+                </small>
+
+            </button>
+
+
+            <button
+                class="difficulty medium active"
+                data-difficulty="medium">
+
+                <strong>MEDIUM</strong>
+
+                <span>
+                    12 SEC
+                </span>
+
+                <small>
+                    DEVELOPER
+                </small>
+
+            </button>
+
+
+            <button
+                class="difficulty hard"
+                data-difficulty="hard">
+
+                <strong>HARD</strong>
+
+                <span>
+                    10 SEC
+                </span>
+
+                <small>
+                    ADVANCED
+                </small>
+
+            </button>
+
+
+            <button
+                class="difficulty expert"
+                data-difficulty="expert">
+
+                <strong>EXPERT</strong>
+
+                <span>
+                    8 SEC
+                </span>
+
+                <small>
+                    ELITE
+                </small>
+
+            </button>
+
+        </div>
+
+
+        <div class="rules">
+
+            <div>
+
+                <span>01</span>
+
+                <strong>
+                    50 QUESTIONS
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>02</span>
+
+                <strong>
+                    3 LIVES
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>03</span>
+
+                <strong>
+                    POWER UPS
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="start-btn"
+            id="startBtn">
+
+            <span>
+                ENTER ARENA
+            </span>
+
+            <b>
+                →
+            </b>
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     QUIZ SECTION
+===================================================== -->
+
+<section
+    class="quiz-section hidden"
+    id="quizSection">
+
+
+    <!-- HUD -->
+
+    <div class="game-hud">
+
+        <div class="hud-box">
+
+            <span>
+                SCORE
+            </span>
+
+            <strong id="score">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="hud-box combo-hud">
+
+            <span>
+                COMBO
+            </span>
+
+            <strong id="combo">
+                ×0
+            </strong>
+
+        </div>
+
+
+        <div class="hud-box lives-hud">
+
+            <span>
+                LIVES
+            </span>
+
+            <strong id="lives">
+                ♥ ♥ ♥
+            </strong>
+
+        </div>
+
+
+        <div class="hud-box">
+
+            <span>
+                BEST
+            </span>
+
+            <strong id="bestCombo">
+                ×0
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <!-- Quiz top -->
+
+    <div class="quiz-top">
+
+        <div class="question-counter">
+
+            <span>
+                QUESTION
+            </span>
+
+            <strong>
+
+                <span id="currentQuestion">
+                    01
+                </span>
+
+                <small>
+                    / 50
+                </small>
+
+            </strong>
+
+        </div>
+
+
+        <div class="timer">
+
+            <div class="timer-circle">
+
+                <svg viewBox="0 0 100 100">
+
+                    <circle
+                        class="timer-bg"
+                        cx="50"
+                        cy="50"
+                        r="44">
+                    </circle>
+
+                    <circle
+                        class="timer-progress"
+                        id="timerProgress"
+                        cx="50"
+                        cy="50"
+                        r="44">
+                    </circle>
+
+                </svg>
+
+                <span id="timerText">
+                    12
+                </span>
+
+            </div>
+
+            <span class="timer-label">
+                TIME
+            </span>
+
+        </div>
+
+
+        <div class="score-box">
+
+            <span>
+                DIFFICULTY
+            </span>
+
+            <strong id="difficultyDisplay">
+                MEDIUM
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <!-- Powerups -->
+
+    <div class="powerups">
+
+        <button
+            class="powerup"
+            id="fiftyBtn">
+
+            <span>50</span>
+
+            <small>
+                50/50
+            </small>
+
+        </button>
+
+
+        <button
+            class="powerup"
+            id="timeBtn">
+
+            <span>+5</span>
+
+            <small>
+                TIME
+            </small>
+
+        </button>
+
+
+        <button
+            class="powerup"
+            id="skipBtn">
+
+            <span>→</span>
+
+            <small>
+                SKIP
+            </small>
+
+        </button>
+
+    </div>
+
+
+    <!-- Progress -->
+
+    <div class="progress-wrapper">
+
+        <div class="progress-info">
+
+            <span>
+                PROGRESS
+            </span>
+
+            <span id="progressText">
+                1 / 50
+            </span>
+
+        </div>
+
+
+        <div class="progress-bar">
+
+            <div
+                class="progress-fill"
+                id="progressFill">
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Question -->
+
+    <div
+        class="question-card"
+        id="questionCard">
+
+        <div class="question-number">
+
+            // QUERY
+
+            <span id="questionNumber">
+                01
+            </span>
+
+        </div>
+
+
+        <div class="category-badge"
+             id="categoryBadge">
+
+            JAVASCRIPT
+
+        </div>
+
+
+        <h3 id="question">
+
+            Loading question...
+
+        </h3>
+
+
+        <div
+            class="answers"
+            id="answers">
+        </div>
+
+
+        <div
+            class="answer-feedback"
+            id="answerFeedback">
+        </div>
+
+    </div>
+
+
+    <!-- Actions -->
+
+    <div class="quiz-actions">
+
+        <div class="keyboard-hint">
+
+            <span>
+                KEYS
+            </span>
+
+            A / B / C / D
+
+        </div>
+
+
+        <button
+            class="next-btn hidden"
+            id="nextBtn">
+
+            NEXT QUESTION
+
+            <span>
+                →
+            </span>
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     RESULT SECTION
+===================================================== -->
+
+<section
+    class="result-section hidden"
+    id="resultSection">
+
+    <div class="result-card">
+
+        <div class="result-glitch">
+            SYSTEM COMPLETE
+        </div>
+
+
+        <div
+            class="result-icon"
+            id="resultIcon">
+
+            🏆
+
+        </div>
+
+
+        <p class="system-label">
+            NEXUS ANALYSIS COMPLETE
+        </p>
+
+
+        <h3>
+
+            YOUR
+            <span>
+                RESULT
+            </span>
+
+        </h3>
+
+
+        <div class="final-score">
+
+            <strong id="finalScore">
+                0
+            </strong>
+
+            <span>
+                / 50
+            </span>
+
+        </div>
+
+
+        <p
+            class="result-message"
+            id="resultMessage">
+
+        </p>
+
+
+        <div class="result-stats">
+
+            <div>
+
+                <span>
+                    CORRECT
+                </span>
+
+                <strong id="correctAnswers">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    WRONG
+                </span>
+
+                <strong id="wrongAnswers">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    ACCURACY
+                </span>
+
+                <strong id="accuracy">
+                    0%
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    BEST COMBO
+                </span>
+
+                <strong id="finalBestCombo">
+                    ×0
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    FASTEST
+                </span>
+
+                <strong id="fastestTime">
+                    --s
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    DIFFICULTY
+                </span>
+
+                <strong id="finalDifficulty">
+                    MEDIUM
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="achievements">
+
+            <div class="achievement-title">
+                ACHIEVEMENTS UNLOCKED
+            </div>
+
+            <div
+                class="achievement-list"
+                id="achievementList">
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="restart-btn"
+            id="restartBtn">
+
+            RUN AGAIN
+
+            <span>
+                ↻
+            </span>
+
+        </button>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div>
+        NEXUS // TECH ARENA
+    </div>
+
+    <div>
+        THINK • CODE • CONQUER
+    </div>
+
+</footer>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="script.js"></script>
+
+</body>
+</html>
